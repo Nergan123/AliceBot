@@ -1,5 +1,5 @@
 import random
-import pandas
+import json
 from source.helpers.BaseClass import BaseClass
 
 
@@ -8,15 +8,20 @@ class DiceRoller(BaseClass):
 
     def __init__(self):
         super().__init__("dice_rolls")
-        self.comment = pandas.read_csv("source/data/comments.csv", delimiter=',')
+        with open("source/data/comments.json", "r") as file:
+            self.comment = json.load(file)
 
     def roll(self, dice_num, side_num, author) -> str:
         """Command to roll dice"""
 
         result, percent = self.roll_calculate(dice_num, side_num)
-        res = list(filter(lambda i: i < percent, self.comment.percent[::-1]))[0]
-        comment = self.comment[self.comment.percent == res].sample()
-        comment = comment.iloc[-1]['comment']
+        res = 1000
+        for key in self.comment["comments"]:
+            if percent <= int(key):
+                res = key
+                break
+        comment = self.comment["comments"][res]
+        comment = random.choice(comment)
         self.log.info(f"Choosing comment: {comment}")
 
         if len(result) == 1:

@@ -25,12 +25,6 @@ class Alice(commands.Bot, BaseClass):
         print(f"{self.user.name} connected to server")
         self.log.info(f"{self.user.name} connected to server")
 
-    async def on_member_join(self, member) -> None:
-        """Send message when member has joined the server"""
-
-        self.log.info(f"{member} joined the server")
-        await member.send(f"Greetings {member.name}. My name is Alice.")
-
     def add_commands(self) -> None:
         """Function to add commands"""
 

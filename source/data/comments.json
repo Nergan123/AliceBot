@@ -1,0 +1,54 @@
+{
+  "comments": {
+    "10": [
+      "I hope it will be better next time",
+      "I would've helped you if I could",
+      "I'm so sorry"
+    ],
+    "20": [
+      "Don't worry. We all have bad days",
+      "It doesn't matter what your score is... I am still your friend",
+      "I wish I could hug you now"
+    ],
+    "30": [
+      "Hope it won't make you sad",
+      "It's better than nothing",
+      "Lets make a deep breath"
+    ],
+    "40": [
+      "Hey that's something",
+      "You are doing great",
+      "It is still a good score"
+    ],
+    "50": [
+      "Half almost? What will it be?",
+      "Remember the two-face from Batman?",
+      "Like a coin flip"
+    ],
+    "60": [
+      "More than a half",
+      "I guess it will work",
+      "*winks*"
+    ],
+    "70": [
+      "Almost there",
+      "This gotta work",
+      "I'm proud of you"
+    ],
+    "80": [
+      "Just a little bit more",
+      "*Looks at the score* Wow",
+      "Those are some serious numbers"
+    ],
+    "90": [
+      "I believe in you",
+      "No luck just skill",
+      "If that won't work, I don't know what will"
+    ],
+    "100": [
+      "My little champion",
+      "We have a winner",
+      "Nergan, have you manipulate the random number generation?"
+    ]
+  }
+}
