@@ -1,5 +1,4 @@
 import pytest
-import pandas
 from source.handlers.DiceRoller import DiceRoller
 
 
@@ -11,7 +10,7 @@ class TestDiceRoller:
     def test_dice_roller_init(self, roller):
         """Run tests"""
 
-        assert isinstance(roller.comment, pandas.core.frame.DataFrame)
+        assert isinstance(roller.comment, dict)
 
     @pytest.mark.parametrize(
         "dice_num, side_num", [
