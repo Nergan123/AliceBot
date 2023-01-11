@@ -21,12 +21,12 @@ class DiceRoller(BaseClass):
 
         if len(result) == 1:
             result = str(result[0])
-            out = f"{comment}\n **{author}** rolled : **{result}**."
+            out = f"{comment}\n**{author}** rolled : **{result}**."
         else:
             if len(result) > 5:
-                out = f"{comment}\n **{author}** rolled total of: **{sum(result)}**."
+                out = f"{comment}\n**{author}** rolled total of: **{sum(result)}**."
             else:
-                out = f"{comment}\n **{author}** rolls: {result[0]} "
+                out = f"{comment}\n**{author}** rolls: {result[0]} "
                 for num in result[1:]:
                     out = out + f"+ {num} "
 
