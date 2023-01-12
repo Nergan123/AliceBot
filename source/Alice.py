@@ -33,9 +33,6 @@ class Alice(commands.Bot, BaseClass):
             """Command to roll dice"""
 
             message = message.split('d')
-            if message[0] < 1 or message[1] < 1:
-                await ctx.send("Values should be greater then 0")
-                return
             author = ctx.message.author.display_name
             out = self.dice_roller.roll(message[0], message[1], author)
 

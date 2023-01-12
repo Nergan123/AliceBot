@@ -43,26 +43,3 @@ jobs:
       - name: Run Tests
         run: |
           pytest -m "unit" test_main.py
-
-  Build_container:
-    needs: Unit_Testing
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Build Docker image
-        run: docker build -t ${env.AZURE_TAG}
-
-  deploy:
-    permissions:
-      contents: none
-    runs-on: ubuntu-latest
-    needs: Build_container
-
-    steps:
-      - name: Login to Azure
-        run: docker login ${env.LOGIN} --username ${env.USERNAME} --password ${env.PASSWORD}
-
-      - name: Push
-        run: docker push -t ${env.AZURE_TAG}
