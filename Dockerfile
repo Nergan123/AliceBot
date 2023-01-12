@@ -10,4 +10,4 @@ COPY . .
 
 RUN pip install -r requirements.txt
 RUN chmod a+x runner.sh
-CMD ["./run.sh"]
+CMD ["./runner.sh"]
