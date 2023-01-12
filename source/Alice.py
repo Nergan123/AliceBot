@@ -33,6 +33,9 @@ class Alice(commands.Bot, BaseClass):
             """Command to roll dice"""
 
             message = message.split('d')
+            if len(message) != 2:
+                await ctx.send("Please provide both numbers")
+                return
             if int(message[0]) < 1 or int(message[1]) < 1:
                 await ctx.send("Values should be greater than 0")
                 return
