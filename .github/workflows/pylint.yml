@@ -65,5 +65,5 @@ jobs:
         run: docker login ${{secrets.LOGIN}} --username ${{secrets.USERNAME}} --password ${{secrets.PASSWORD}}
 
       - name: Push
-        run: docker push -t ${{secrets.AZURE_TAG}}
+        run: docker push ${{secrets.AZURE_TAG}}
 
