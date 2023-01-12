@@ -4,10 +4,8 @@ WORKDIR /app
 COPY requirements.txt .
 
 RUN apt update
-EXPOSE 80
 
 COPY . .
 
 RUN pip install -r requirements.txt
-RUN chmod a+x runner.sh
-CMD ["./runner.sh"]
+CMD["python","main.py"]
