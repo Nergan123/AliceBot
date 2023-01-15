@@ -1,5 +1,8 @@
 # AliceBot v0.1
 
+Bot is still in an early stage of development 
+more content will be added in the future
+
 made by Nergan
 
 ## Contents
