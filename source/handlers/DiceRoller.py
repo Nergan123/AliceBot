@@ -17,6 +17,7 @@ class DiceRoller(BaseClass, commands.Cog, name="Dice rolls"):
         """Command to roll dice"""
 
         channel = ctx.channel.category.name
+        self.log.info(f"channel: {channel}")
         if channel != "ROLEPLAY":
             await ctx.send(
                 "I'm sorry.\n"
