@@ -18,7 +18,7 @@ class DiceRoller(BaseClass, commands.Cog, name="Dice rolls"):
 
         channel = ctx.channel.category.name
         self.log.info(f"channel: {channel}")
-        if channel != "ROLEPLAY":
+        if channel != "Roleplay":
             await ctx.send(
                 "I'm sorry.\n"
                 "This command available only in **ROLEPLAY** channels.\n"

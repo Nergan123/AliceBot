@@ -1,4 +1,4 @@
-# AliceBot v0.7
+# AliceBot v0.8
 
 Bot is still in an early stage of development 
 more content will be added in the future
