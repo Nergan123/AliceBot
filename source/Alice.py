@@ -11,35 +11,11 @@ class Alice(commands.Bot, BaseClass):
         BaseClass.__init__(self, "alice_data")
         intents = discord.Intents.default()
         intents.message_content = True
-        commands.Bot.__init__(
-            self,
-            command_prefix=command_prefix,
-            intents=intents
-        )
-        self.dice_roller = DiceRoller()
-        self.add_commands()
+        commands.Bot.__init__(self, command_prefix=command_prefix, intents=intents)
 
     async def on_ready(self) -> None:
         """Log message when bot is running"""
 
+        await self.add_cog(DiceRoller())
         print(f"{self.user.name} connected to server")
         self.log.info(f"{self.user.name} connected to server")
-
-    def add_commands(self) -> None:
-        """Function to add commands"""
-
-        @self.command(name="roll", help='Rolls the dice. Command example "!roll 2d6"')
-        async def roll(ctx, message):
-            """Command to roll dice"""
-
-            message = message.split('d')
-            if len(message) != 2:
-                await ctx.send("Please provide both numbers")
-                return
-            if int(message[0]) < 1 or int(message[1]) < 1:
-                await ctx.send("Values should be greater than 0")
-                return
-            author = ctx.message.author.display_name
-            out = self.dice_roller.roll(message[0], message[1], author)
-
-            await ctx.send(out)

@@ -1,18 +1,43 @@
 import random
 import json
+from discord.ext import commands
 from source.helpers.BaseClass import BaseClass
 
 
-class DiceRoller(BaseClass):
-    """Class to handle dice rolls"""
+class DiceRoller(BaseClass, commands.Cog, name="Dice rolls"):
+    """Handles all the interaction with dices"""
 
     def __init__(self):
-        super().__init__("dice_rolls")
+        BaseClass.__init__(self, "dice_rolls")
         with open("source/data/comments.json", "r") as file:
             self.comment = json.load(file)
 
-    def roll(self, dice_num, side_num, author) -> str:
+    @commands.command(name="roll", help='Rolls the dice. Command example "!roll 2d6"')
+    async def roll(self, ctx, message) -> None:
         """Command to roll dice"""
+
+        channel = ctx.channel.category.name
+        if channel != "ROLEPLAY":
+            await ctx.send(
+                "I'm sorry.\n"
+                "This command available only in **ROLEPLAY** channels.\n"
+                "For more info refer to __GITHUB__ page. Link is in my description"
+            )
+            return
+        message = message.split("d")
+        if len(message) != 2:
+            await ctx.send("Please provide both numbers")
+            return
+        if int(message[0]) < 1 or int(message[1]) < 1:
+            await ctx.send("Values should be greater than 0")
+            return
+        author = ctx.message.author.display_name
+        out = self.roll_dice(message[0], message[1], author)
+
+        await ctx.send(out)
+
+    def roll_dice(self, dice_num, side_num, author) -> str:
+        """Function to roll dice"""
 
         result, percent = self.roll_calculate(dice_num, side_num)
         res = 1000
