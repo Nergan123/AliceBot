@@ -179,7 +179,7 @@ class GameHandler(BaseClass, commands.Cog, name="Games"):
                 await ctx.send("Bet is too high. Try something else")
                 return
         except ValueError as e:
-            self.log.warn(f"User {ctx.author.display_name} input invalid\n{e}")
+            self.log.warning(f"User {ctx.author.display_name} input invalid\n{e}")
             await ctx.send("Your bet is in the wrong format")
             return
 
