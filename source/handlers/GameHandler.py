@@ -14,6 +14,7 @@ class GameHandler(BaseClass, commands.Cog, name="Games"):
     SERIALIZABLE_FIELDS = [
         "state",
         "players",
+        "all_players",
         "order",
         "turn",
     ]
@@ -22,6 +23,7 @@ class GameHandler(BaseClass, commands.Cog, name="Games"):
         BaseClass.__init__(self, "game_handler_data")
         self.state = 0
         self.players = {}
+        self.all_players = {}
         self.order = []
         self.turn = 0
         self.load_state()
@@ -61,7 +63,6 @@ class GameHandler(BaseClass, commands.Cog, name="Games"):
                 f"Who is participating?\n\n"
                 f"Use __start_game__ command when all players are connected\n"
                 f"Use __connect__ to enter the game\n"
-                f"If you reach minimum score of 1 just bet 1. Your bet will be skipped"
             )
             await ctx.send("===================================================")
         elif self.state == 1:
@@ -141,6 +142,9 @@ class GameHandler(BaseClass, commands.Cog, name="Games"):
             self.players[ctx.author.display_name] = {}
             self.players[ctx.author.display_name]["height"] = 6
             self.players[ctx.author.display_name]["initiative"] = random.randint(1, 20)
+            self.all_players[ctx.author.display_name] = {}
+            self.all_players[ctx.author.display_name]["height"] = 6
+            self.all_players[ctx.author.display_name]["initiative"] = random.randint(1, 20)
             self.log.info(f"Adding {ctx.author.display_name}")
             self.save_state()
             await ctx.send(f"User **{ctx.author.display_name}** has joined the game")
@@ -350,7 +354,7 @@ class GameHandler(BaseClass, commands.Cog, name="Games"):
             personality = random.choice(self.endings)
             await ctx.send(self.outcomes[personality]["intro"])
             await ctx.send(self.outcomes[personality]["gif"])
-            for name in self.players.keys():
+            for name in self.all_players.keys():
                 async with ctx.typing():
                     await asyncio.sleep(20)
                 await ctx.send(f"**{name}** your fate:")
