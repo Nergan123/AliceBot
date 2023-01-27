@@ -323,7 +323,7 @@ class GameHandler(BaseClass, commands.Cog, name="Games"):
             else:
                 winner.append(name)
 
-        if len(winner) == 1 and len(self.players.keys()) > 1:
+        if len(winner) == 1:
             await ctx.send(f"We have a winner! It is {winner[0]}.\n"
                            f"Please choose the fate for the ones who have lost")
             if self.state != 0:

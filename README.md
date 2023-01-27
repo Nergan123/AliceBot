@@ -43,6 +43,7 @@ You won't be able to use them outside of this category.
 | connect     | Connects a player to the game. Will keep track of his progress                                               | !connect    |
 | bet         | Rolls 1d6 and predicts the outcome of your bet                                                               | !bet 10     |
 | get_height  | Displays current height of all players                                                                       | !get_height |
+| end_game    | Ends current game                                                                                            | !end_game   |
 
 
 ## Game
