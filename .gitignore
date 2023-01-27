@@ -3,3 +3,7 @@ __pycache__
 .env
 alice_logs
 .pytest_cache
+states
+encr.py
+*.key
+outcomes.json
