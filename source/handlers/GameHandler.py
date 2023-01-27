@@ -246,6 +246,14 @@ class GameHandler(BaseClass, commands.Cog, name="Games"):
             if outcome:
                 return
 
+        i = 0
+        for name in self.order:
+            if self.players[name]["height"] <= 1:
+                self.order.pop(i)
+                self.players.pop(name)
+                self.turn -= 1
+            i += 1
+
         self.turn += 1
         if self.turn >= len(self.order):
             self.turn = 0
