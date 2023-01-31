@@ -31,7 +31,7 @@ class GameHandler(BaseClass, commands.Cog, name="Games"):
             self.start_comments = json.loads(data.read())
         with open("source/data/game/game_comments.json", "r") as data:
             self.roll_comments = json.loads(data.read())
-        self.endings = ["Y"]
+        self.endings = ["Y", "S"]
 
         load_dotenv()
         key = os.getenv('KEY')
