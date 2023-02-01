@@ -1,4 +1,4 @@
-# AliceBot v0.9
+# AliceBot v0.10
 
 Bot is still in an early stage of development 
 more content will be added in the future
@@ -36,14 +36,16 @@ These commands are available in any channel at any point of time
 These commands are limited to channels included in RolePlay category.
 You won't be able to use them outside of this category.
 
-| **Command** | **Description**                                                                                              | **Example** |
-|:------------|:-------------------------------------------------------------------------------------------------------------|:------------|
-| roll        | Alice will roll dices for you. First value is number of dices and second is number of sides on the dices     | !roll 2d20  |
-| start_game  | Now you can start a simple dice game. This command used to launch th e game and finish stage to add players. | !start_game |
-| connect     | Connects a player to the game. Will keep track of his progress                                               | !connect    |
-| bet         | Rolls 1d6 and predicts the outcome of your bet                                                               | !bet 10     |
-| get_height  | Displays current height of all players                                                                       | !get_height |
-| end_game    | Ends current game                                                                                            | !end_game   |
+| **Command**  | **Description**                                                                                                                                                          | **Example**                       |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------|
+| roll         | Alice will roll dices for you. First value is number of dices and second is number of sides on the dices                                                                 | !roll 2d20                        |
+| start_game   | Now you can start a simple dice game. This command used to launch th e game and finish stage to add players.                                                             | !start_game                       |
+| connect      | Connects a player to the game. Will keep track of his progress                                                                                                           | !connect                          |
+| bet          | Rolls 1d6 and predicts the outcome of your bet                                                                                                                           | !bet 10                           |
+| get_height   | Displays current height of all players                                                                                                                                   | !get_height                       |
+| end_game     | Ends current game                                                                                                                                                        | !end_game                         |
+| interact     | Chooses a random interaction from available categories: Object, Body, Task, Gift. Also possible to choose from personal interactions adding by "P" in the end of command | !interact Object P                |
+| add_personal | Adds personal interaction to the list. To use provide category as first word and comment as everything else                                                              | !add_personal Object some comment |
 
 
 ## Game

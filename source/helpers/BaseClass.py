@@ -16,6 +16,7 @@ class BaseClass(LoggingHandler):
         self.log.info(f"Base Class for {name} activated")
         self.json_name = name
         self.state_bucket = "nergan-bot"
+        self.banned_ids = []
 
     def save_state(self) -> None:
         """ Saves the current state to .json object """
@@ -56,3 +57,8 @@ class BaseClass(LoggingHandler):
             self.log.error(f"File corrupted. error: {error}. '{self.json_name}_data.json'")
             self.log.info("Attempting to solve")
             self.save_state()
+
+    def check_banned_id(self, user_id) -> bool:
+        """Checks if user is banned"""
+
+        return user_id in self.banned_ids

@@ -2,7 +2,7 @@ import pytest
 from source.handlers.DiceRoller import DiceRoller
 
 
-@pytest.mark.dice_roller
+@pytest.mark.module("DiceRoller")
 class TestDiceRoller:
     """Class for testing Parser module"""
 
