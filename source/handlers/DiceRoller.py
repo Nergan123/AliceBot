@@ -34,8 +34,6 @@ class DiceRoller(BaseClass, commands.Cog, name="Dice rolls"):
             return
         author = ctx.message.author.display_name
         out = self.roll_dice(message[0], message[1], author)
-        if ctx.author.id == 278900472679628800:
-            out = f"Good luck beating that\n**{author}** rolls: 9000+ "
 
         await ctx.send(out)
 
