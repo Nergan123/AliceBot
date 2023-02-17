@@ -45,6 +45,16 @@ class InteractionHandler(BaseClass, commands.Cog, name="Interactions"):
 
         await ctx.send(f"{ctx.author.display_name}: {output}")
 
+    @commands.command(name="dev")
+    async def dev_command(self, ctx):
+        """Command for dev only"""
+
+        if ctx.author.id != 278900472679628800:
+            return
+        await ctx.message.delete()
+        self.log.info(ctx.message.content)
+        await ctx.send(ctx.message.content[5:])
+
     @commands.command(name="add_personal", help="Adds your comment to category")
     async def add_personal(self, ctx, category, *args) -> None:
         """Adds personal comment to category"""
